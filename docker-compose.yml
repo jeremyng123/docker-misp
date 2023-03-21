@@ -4,14 +4,16 @@ services:
   # See: https://hub.docker.com/r/namshi/smtp
   mail:
     image: namshi/smtp
+    restart: always
 
   redis:
     image: redis:5.0.6
+    restart: always
 
   db:
     image: mysql:8.0.19
-    command: --default-authentication-plugin=mysql_native_password
     restart: always
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       - "MYSQL_USER=misp"
       - "MYSQL_PASSWORD=example"
@@ -24,6 +26,7 @@ services:
 
   misp:
     image: coolacid/misp-docker:core-latest
+    restart: always
     depends_on:
       - redis
       - db
@@ -56,6 +59,7 @@ services:
   #      - "WORKERS=1" #If set to a value larger than 1 this will increase the number of parallel worker processes
   misp-modules:
     image: coolacid/misp-docker:modules-latest
+    restart: always
     environment:
       - "REDIS_BACKEND=redis"
     depends_on:
