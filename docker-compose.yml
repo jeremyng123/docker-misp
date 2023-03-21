@@ -48,7 +48,7 @@ services:
   #      - "MYSQL_PASSWORD=example" # NOTE: This should be AlphaNum with no Special Chars. Otherwise, edit config files after first run.
   #      - "MYSQL_DATABASE=misp"
   # Optional Settings
-  #      - "NOREDIR=true" # Do not redirect port 80
+       - "NOREDIR=true" # Do not redirect port 80
   #      - "DISIPV6=true" # Disable IPV6 in nginx
   #      - "CERTAUTH=optional" # Can be set to optional or on - Step 2 of https://github.com/MISP/MISP/tree/2.4/app/Plugin/CertAuth is still required
   #      - "SECURESSL=true" # Enable higher security SSL in nginx
